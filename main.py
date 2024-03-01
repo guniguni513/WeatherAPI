@@ -3,11 +3,12 @@ import json
 #Weatherクラス
 class Weather:
     #コンストラクタ
-    def __init__(self,telop):
+    def __init__(self,telop,celsius):
         self.telop=telop
+        self.celsius=celsius
     #予報をCSV文字列にするメソッド
     def toCSV(self):
-        return f'{self.telop}'
+        return f'{self.telop},{self.celsius}'
 
 URL='https://weather.tsukumijima.net/api/forecast/city/130010'
 #通信をしてレスポンスを取得
@@ -20,6 +21,6 @@ data=json.loads(res.text)
 #リスト作成
 weather=[]
 #天気と最高気温を取り出してWeatherオブジェクトを作成し、リストに追加
-weather.append(Weather(data['forecasts'][0]['telop']))
+weather.append(Weather(data['forecasts'][0]['telop'],data['forecasts'][0]['temperature']['max']['celsius']))
 #デバッグプリント
 print(weather[0].toCSV())
