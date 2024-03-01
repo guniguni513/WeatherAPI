@@ -24,3 +24,8 @@ weather=[]
 weather.append(Weather(data['forecasts'][0]['telop'],data['forecasts'][0]['temperature']['max']['celsius']))
 #デバッグプリント
 print(weather[0].toCSV())
+
+#result.csvを開いて（無ければ新規に作成される）書き込む
+with open('result.csv','w',encoding='utf-8')as file:
+    for w in weather:
+        file.write(w.toCSV()+'\n')
