@@ -20,6 +20,6 @@ data=json.loads(res.text)
 #リスト作成
 weather=[]
 #天気と最高気温を取り出してWeatherオブジェクトを作成し、リストに追加
-weather.append(Weather(data['forecasts'][2]))
+weather.append(Weather(data['forecasts'][0]['telop']))
 #デバッグプリント
 print(weather[0].toCSV())
