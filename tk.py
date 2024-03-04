@@ -7,6 +7,7 @@ import csv
 root=tk.Tk()
 root.title(u"今日のお天気")
 root.geometry('400x300')
+root.resizable(width=False,height=False)
 
 def CreateCVS():
     URL='https://weather.tsukumijima.net/api/forecast/city/130010'
@@ -34,7 +35,7 @@ canvas.pack()
 #画像を用意
 photo1 = tk.PhotoImage(file='sky.png')
 #画像を描画(中点x,中点y,画像)
-canvas.create_image(320,213,image=photo1)
+canvas.create_image(200,150,image=photo1)
 
 #CVS作成
 CreateCVS()
@@ -48,5 +49,5 @@ msg2 = tk.Label(
 msg2.place(x=50,y=30)
 
 #ボタン
-Button = tk.Button(text=u'東京のお天気は？',height =2,command=showinfo).place(x=150,y=159)
+Button = tk.Button(text=u'東京のお天気は？',height =2,command=showinfo).place(x=150,y=160)
 root.mainloop()
